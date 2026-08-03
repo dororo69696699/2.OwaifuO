@@ -18,7 +18,9 @@ TRADE_TIMEOUT = int(os.getenv("TRADE_TIMEOUT", "600"))  # 10 minutes
 # START IMAGES
 
 START_IMG = [
-    "https://telegra.ph/file/xyz1.jpg",
-    "https://telegra.ph/file/xyz2.jpg",
-    # Add your Nezuko images here
+    "https://files.catbox.moe/nsbcfh.jpg",
+    "https://files.catbox.moe/nd8gpf.jpg",
+    "https://files.catbox.moe/lkdqdz.jpg",
+    "https://files.catbox.moe/v6q08s.jpg",
+    # ADD MORE IMAGES ASS YOU WANT
 ]
