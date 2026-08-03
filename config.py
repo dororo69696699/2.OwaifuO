@@ -5,7 +5,7 @@ API_HASH = os.getenv("API_HASH", "")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "8988622858:AAHamrsZ_mCiTB4L950B7k7Y8QApzcWPDRc")
 MONGO_URL = os.getenv(
     "MONGO_URL",
-    ""
+    "mongodb+srv://Egoist:jayesh1090@waifubot.jblumsy.mongodb.net/?appName=Waifubot"
 )
 
 # Card System Configurations
