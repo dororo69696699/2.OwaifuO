@@ -8,7 +8,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from EGO import bot
 from EGO.db import collection, user_collection, group_user_totals_collection, Groups
 from EGO.utils.rarity import rarity_map
-from EGO.Modules.msg import get_message_count, reset_message_count, should_spawn
+from EGO.utils.msg import get_message_count, reset_message_count, should_spawn
 from config import SPAWN_TIMEOUT, DEFAULT_SPAWN_LIMIT, OWNER_ID
 
 # Store active spawns
