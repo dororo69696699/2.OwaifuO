@@ -1,3 +1,12 @@
+import random
+import asyncio
+from datetime import datetime, timedelta
+from pyrogram import Client, filters, enums
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from EGO import bot
+from EGO.Modules.msg import get_message_count, reset_message_count, should_spawn
+from config import SPAWN_TIMEOUT, DEFAULT_SPAWN_LIMIT, OWNER_ID
+
 # ======================================================
 # SET SPAWN TIME COMMAND (Admin Only)
 # ======================================================
