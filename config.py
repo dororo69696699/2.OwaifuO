@@ -2,7 +2,7 @@ import os
 
 API_ID = int(os.getenv("API_ID", ""))
 API_HASH = os.getenv("API_HASH", "")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8988622858:AAHamrsZ_mCiTB4L950B7k7Y8QApzcWPDRc")
 MONGO_URL = os.getenv(
     "MONGO_URL",
     ""
