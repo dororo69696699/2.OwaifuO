@@ -1,14 +1,15 @@
-# EGO/modules/msg.py (Advanced Version)
+# EGO/modules/msg.py
 
 from pyrogram import Client, filters
+from pyrogram.types import Message
+from datetime import datetime
 from EGO import bot
 from EGO.db import Groups
-from datetime import datetime
 
 @bot.on_message(filters.group & ~filters.bot & ~filters.service)
 async def count_messages(client: Client, message: Message):
     chat_id = message.chat.id
-    
+
     # Update message count in database
     await Groups.update_one(
         {"id": chat_id},
@@ -16,6 +17,7 @@ async def count_messages(client: Client, message: Message):
             "$inc": {"message_count": 1},  # Increment by 1
             "$set": {
                 "title": message.chat.title,
+                "username": message.chat.username,
                 "last_activity": datetime.now()
             }
         },
