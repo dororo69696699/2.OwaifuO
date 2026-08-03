@@ -8,7 +8,7 @@ from EGO.db import collection, user_collection, group_user_totals_collection
 from config import SPAWN_TIMEOUT
 
 # Import active_spawns from spawn module
-from EGO.Modules.spawn import active_spawns
+from EGO.Plugins.spawn import active_spawns
 
 # ======================================================
 # GRAB COMMAND
