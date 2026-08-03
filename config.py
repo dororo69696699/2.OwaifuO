@@ -14,3 +14,11 @@ DEFAULT_SPAWN_LIMIT = int(os.getenv("DEFAULT_SPAWN_LIMIT", "100"))
 SPAWN_TIMEOUT = int(os.getenv("SPAWN_TIMEOUT", "300"))  # 5 minutes in seconds
 
 TRADE_TIMEOUT = int(os.getenv("TRADE_TIMEOUT", "600"))  # 10 minutes
+
+# START IMAGES
+
+START_IMG = [
+    "https://telegra.ph/file/xyz1.jpg",
+    "https://telegra.ph/file/xyz2.jpg",
+    # Add your Nezuko images here
+]
