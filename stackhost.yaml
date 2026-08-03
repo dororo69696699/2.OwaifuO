@@ -1,0 +1,16 @@
+user:
+  name: "NARUTO"
+  github: "NARUTO-UZUMAKI"
+
+runtime:
+  image: "python:3.11-slim"
+
+commands:
+  package: ""
+  build:
+    - "pip install -U -r requirements.txt"
+  start: "python -m EGO"
+
+repository:
+  branch: "main"
+  auto_deploy: true
