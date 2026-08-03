@@ -16,7 +16,6 @@ SPAWN_TIMEOUT = int(os.getenv("SPAWN_TIMEOUT", "300"))  # 5 minutes in seconds
 TRADE_TIMEOUT = int(os.getenv("TRADE_TIMEOUT", "600"))  # 10 minutes
 
 # START IMAGES
-
 START_IMG = [
     "https://files.catbox.moe/nsbcfh.jpg",
     "https://files.catbox.moe/nd8gpf.jpg",
