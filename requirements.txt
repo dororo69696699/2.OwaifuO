@@ -1,0 +1,11 @@
+kurigram
+tgcrypto
+motor
+aiohttp
+requests
+pymongo
+httpx[http2]
+cachetools 
+pillow
+aiofiles
+python-dotenv==0.21.0
