@@ -8,7 +8,7 @@ MONGO_URL = os.getenv(
     "mongodb+srv://Egoist:jayesh1090@waifubot.jblumsy.mongodb.net/?appName=Waifubot"
 )
 
-# Card System Configurations
+# waifu/husbando System Configurations
 DEFAULT_SPAWN_LIMIT = int(os.getenv("DEFAULT_SPAWN_LIMIT", "100"))
 
 SPAWN_TIMEOUT = int(os.getenv("SPAWN_TIMEOUT", "300"))  # 5 minutes in seconds
