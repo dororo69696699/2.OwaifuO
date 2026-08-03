@@ -1,14 +1,14 @@
-# EGO/modules/grab.py
+# EGO/Modules/grab.py
 
 from datetime import datetime, timedelta
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message
 from EGO import bot
-from EGO.db import collection, user_collection, group_user_totals_collection
+from EGO.db import user_collection, group_user_totals_collection
 from config import SPAWN_TIMEOUT
 
 # Import active_spawns from spawn module
-from EGO.Plugins.spawn import active_spawns
+from EGO.Modules.spawn import active_spawns
 
 # ======================================================
 # GRAB COMMAND
