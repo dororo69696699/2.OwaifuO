@@ -1,11 +1,12 @@
-import random
-import asyncio
-from datetime import datetime, timedelta
+# EGO/Modules/ctime.py
+
 from pyrogram import Client, filters, enums
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import Message
 from EGO import bot
-from EGO.utils.msg import get_message_count, reset_message_count, should_spawn
-from config import SPAWN_TIMEOUT, DEFAULT_SPAWN_LIMIT, OWNER_ID
+from config import OWNER_ID
+
+# Import spawn_settings from spawn.py
+from EGO.Modules.spawn import spawn_settings
 
 # ======================================================
 # SET SPAWN TIME COMMAND (Admin Only)
@@ -14,18 +15,25 @@ from config import SPAWN_TIMEOUT, DEFAULT_SPAWN_LIMIT, OWNER_ID
 async def set_spawn_time(client: Client, message: Message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-
-    # Check if user is admin or owner
-    member = await message.chat.get_member(user_id)
-    is_admin = member.status in ["creator", "administrator"]
-    is_owner = user_id == OWNER_ID
-
-    if not is_admin and not is_owner:
+    
+    # Direct owner check
+    is_owner = (user_id == OWNER_ID)
+    
+    # Admin check
+    is_admin = False
+    try:
+        member = await message.chat.get_member(user_id)
+        is_admin = member.status in ["creator", "administrator"]
+    except Exception:
+        pass
+    
+    # Allow if owner OR admin
+    if not (is_owner or is_admin):
         return await message.reply_text(
             "🎀 <i>ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!</i>",
             parse_mode=enums.ParseMode.HTML
         )
-
+    
     args = message.text.split()
     if len(args) != 2:
         return await message.reply_text(
@@ -37,28 +45,28 @@ async def set_spawn_time(client: Client, message: Message):
             "ᴀᴅᴍɪɴs ᴄᴀɴ sᴇᴛ sᴘᴀᴡɴ ᴛɪᴍᴇ ʙᴇᴛᴡᴇᴇɴ 80 ᴛᴏ 500 ᴍᴇssᴀɢᴇs</blockquote>",
             parse_mode=enums.ParseMode.HTML
         )
-
+    
     try:
         count = int(args[1])
-
-        # Check limits based on user role
+        
+        # Bot owner can set any value (1-1000)
         if is_owner:
-            # Owner can set any value (no minimum restriction)
             if count < 1 or count > 1000:
                 return await message.reply_text(
                     "🎀 <i>ᴘʟᴇᴀsᴇ sᴇᴛ ᴀ ᴠᴀʟᴜᴇ ʙᴇᴛᴡᴇᴇɴ 1-1000!</i>",
                     parse_mode=enums.ParseMode.HTML
                 )
         else:
-            # Admins must follow 80-500 range
+            # Group admins must follow 80-500 range
             if count < 80 or count > 500:
                 return await message.reply_text(
                     "🎀 <i>ᴀᴅᴍɪɴs ᴄᴀɴ sᴇᴛ sᴘᴀᴡɴ ᴛɪᴍᴇ ʙᴇᴛᴡᴇᴇɴ 80 ᴛᴏ 500 ᴍᴇssᴀɢᴇs!</i>",
                     parse_mode=enums.ParseMode.HTML
                 )
-
+        
+        # Save spawn settings
         spawn_settings[chat_id] = count
-
+        
         await message.reply_text(
             f"✅ <b>sᴘᴀᴡɴ ᴛɪᴍᴇ sᴇᴛ!</b>\n\n"
             f"<blockquote>ɴᴇᴡ sᴘᴀᴡɴ ᴡɪʟʟ ᴛʀɪɢɢᴇʀ ᴀғᴛᴇʀ ᴇᴠᴇʀʏ\n"
@@ -66,7 +74,7 @@ async def set_spawn_time(client: Client, message: Message):
             f"🎀 <i>ʜᴍᴍᴘʜ ʜᴍᴍᴘʜ~ ɢᴏᴏᴅ ʟᴜᴄᴋ!</i>",
             parse_mode=enums.ParseMode.HTML
         )
-
+        
     except ValueError:
         await message.reply_text(
             "🎀 <i>ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴠᴀʟɪᴅ ɴᴜᴍʙᴇʀ!</i>",
