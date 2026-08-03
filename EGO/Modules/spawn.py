@@ -167,9 +167,9 @@ async def timeout_info_callback(client: Client, query: CallbackQuery):
         info_text = (
             f"🎀 <b>ᴄʜᴀʀᴀᴄᴛᴇʀ ɪɴғᴏ</b>\n"
             f"━━━━━━━━━━━━━━━━━━━━━\n\n"
-            f"📛 <b>ɴᴀᴍᴇ:</b> {name}\n"
+            f"🍁 <b>ɴᴀᴍᴇ:</b> {name}\n"
             f"⛩️ <b>ᴀɴɪᴍᴇ:</b> {anime}\n"
-            f"🌈 <b>ʀᴀʀɪᴛʏ:</b> {rarity}\n"
+            f"🥀 <b>ʀᴀʀɪᴛʏ:</b> {rarity}\n"
             f"🆔 <b>ɪᴅ:</b> <code>{char_id}</code>\n\n"
             f"━━━━━━━━━━━━━━━━━━━━━\n"
             f"👤 <b>ᴄʟɪᴄᴋᴇᴅ ʙʏ:</b> {query.from_user.mention}\n\n"
