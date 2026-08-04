@@ -17,7 +17,7 @@ spawn_settings = {}
 # ======================================================
 # MESSAGE COUNTER + AUTO SPAWN SYSTEM
 # ======================================================
-@bot.on_message(filters.group & ~filters.bot & ~filters.service & ~filters.command(["grab", "ctime", "start", "upload", "rarity"]))
+@bot.on_message(filters.group & ~filters.bot & ~filters.service & ~filters.command(["grab", "ctime", "start", "upload", "rarity", "total"]))
 async def auto_spawn_checker(client: Client, message: Message):
     chat_id = message.chat.id
     
